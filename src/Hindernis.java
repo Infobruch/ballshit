@@ -25,5 +25,15 @@ public class Hindernis{
     public double gibTiefe(){ 
         return tiefe; 
     }
+    public void rotate(double wX, double wY, double wZ){
+        quader.drehe(wX, wY, wZ);
+    }
+    public void changeTexture(String pTexture){
+        quader.setzeTextur(pTexture);
+    }
+    public void changeMaterial(float[][] pMaterial){
+        quader.setzeMaterial(pMaterial);
+    }
+
 
 }
