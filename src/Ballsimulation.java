@@ -2,20 +2,18 @@ import GLOOP.*;
 public class Ballsimulation{
     private GLKamera kamera;
     GLLicht licht;
-    GLHimmel himmel;
-
     private GLTastatur tastatur;
 
     private Ball ball;
     private BouncingBall bouncingBall;
     private EpilepticBall epilepticBall;
+    private DaReshapingOne daReshapingOne;
     private Hindernis[] hindernis;
 
     public Ballsimulation(){
         kamera = new GLSchwenkkamera(800,500);
         kamera.setzePosition(0,500,2000);
         licht  = new GLLicht();
-        himmel = new GLHimmel("src/Himmel.jpg");
         tastatur = new GLTastatur();
 
         hindernis = new Hindernis[6];
@@ -28,6 +26,7 @@ public class Ballsimulation{
         for(int i=0; i<hindernis.length; i++){
             hindernis[i].changeMaterial(GLMaterial.GLAS);
         }
+        //hindernis[2].setVisibility(false);
 
         ball = new Ball (0,200,0, 20);
         ball.werfen(new GLVektor(Math.random()*4-2,0,Math.random()*4-2));
@@ -35,6 +34,8 @@ public class Ballsimulation{
         bouncingBall.werfen(new GLVektor(Math.random()*4-2,Math.random()*4-2 ,Math.random()*4-2));
         epilepticBall = new EpilepticBall(0, 200, 0, 20);
         epilepticBall.werfen(new GLVektor(Math.random()*4-2,Math.random()*4-2 ,Math.random()*4-2));
+        daReshapingOne = new DaReshapingOne(0,200,0, 20);
+        daReshapingOne.werfen(new GLVektor(Math.random()*2-1,Math.random()*2-1 ,Math.random()*2-1));
 
         fuehreAus();
     }
@@ -45,10 +46,12 @@ public class Ballsimulation{
             ball.bewegeDich();
             bouncingBall.bewegeDich();
             epilepticBall.bewegeDich();
+            daReshapingOne.bewegeDich();
             for (int j=0; j< hindernis.length; j++) {
                 ball.bearbeiteHindernis(hindernis[j]);
                 bouncingBall.bearbeiteHindernis(hindernis[j]);
                 epilepticBall.bearbeiteHindernis(hindernis[j]);
+                daReshapingOne.bearbeiteHindernis(hindernis[j]);
             }
             Sys.warte();
         }

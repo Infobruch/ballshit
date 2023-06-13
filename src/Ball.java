@@ -39,4 +39,7 @@ public class Ball{
     public void changeTexture(String pTexture){
         kugel.setzeTextur(pTexture);
     }
+    public void changeColor(double r, double g, double b){
+        kugel.setzeFarbe(r,g,b);
+    }
 }

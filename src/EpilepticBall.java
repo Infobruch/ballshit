@@ -12,18 +12,22 @@ public class EpilepticBall extends BouncingBall{
         double h = pH.gibHoehe();
         double t = pH.gibTiefe();
 
+        double R = Math.random(), G = Math.random(), B = Math.random();
         if((dX < b/2+radius/2)&&(dY < h/2 +radius/2)&&(dZ < t/2 +radius/2)){
             if (2*dX/b> 2*dY/h && 2*dX/b>2*dZ/t){
                 bewegung.x = - bewegung.x;
-                kugel.setzeFarbe((Math.random()*255),(Math.random()*255),(Math.random()*255));
+                kugel.setzeSelbstleuchten(R, G, B);
+                kugel.setzeFarbe(R, G, B);
             }
             if (2*dY/h>2*dX/b && 2*dY/h>2*dZ/t){
                 bewegung.y = - bewegung.y;
-                kugel.setzeFarbe((Math.random()*255),(Math.random()*255),(Math.random()*255));
+                kugel.setzeSelbstleuchten(R, G, B);
+                kugel.setzeFarbe(R, G, B);
             }
             if (2*dZ/t>2*dX/b && 2*dZ/t>2*dY/h){
                 bewegung.z = - bewegung.z;
-                kugel.setzeFarbe((Math.random()*255),(Math.random()*255),(Math.random()*255));
+                kugel.setzeSelbstleuchten(R, G, B);
+                kugel.setzeFarbe(R, G, B);
             }
         }
     }

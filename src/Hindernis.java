@@ -34,6 +34,11 @@ public class Hindernis{
     public void changeMaterial(float[][] pMaterial){
         quader.setzeMaterial(pMaterial);
     }
-
+    public void changeColor(double r, double g, double b){
+        quader.setzeFarbe(r,g,b);
+    }
+    public void setVisibility(boolean pVisibility){
+        quader.setzeSichtbarkeit(pVisibility);
+    }
 
 }
